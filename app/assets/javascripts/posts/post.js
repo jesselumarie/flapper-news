@@ -1,4 +1,4 @@
-angular.module('flapperNews').factory('posts', [function(){
+angular.module('flapperNews').factory('posts', ['$http', function($http){
   var o = {
     posts: [  
 	    {title: 'post 1', upvotes: 5, comments: []},
@@ -8,5 +8,12 @@ angular.module('flapperNews').factory('posts', [function(){
 	  	{title: 'post 5', upvotes: 4}
     ]
   };
+
+  o.getAll = function() {
+  		return $http.get('/posts.json').success(function(data){
+      	angular.copy(data, o.posts);
+    });
+  };
+
   return o;
 }])

@@ -7,6 +7,7 @@
     ng-click="incrementUpvotes(post)"></span>
   {{post.upvotes}}
   <span style="font-size:20px; margin-left:10px;">
+    posted by <a ng-href="#/users/{{post.user.username}}">{{post.user.username}}</a>  
     <a ng-show="post.link" href="{{post.link}}">
       {{post.title}}
     </a>
@@ -15,7 +16,7 @@
     </span>
   </span>
   <span>
-    <a href="#/posts/{{$index}}">Comments</a>
+    <a href="#/posts/{{post.id}}">Comments</a>
   </span>
 </div>
 

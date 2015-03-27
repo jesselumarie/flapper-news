@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.increment!(:upvotes)
+    puts("Hello")
     respond_with @post, @comment
   end
 
